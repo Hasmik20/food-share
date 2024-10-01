@@ -4,16 +4,16 @@ import { getMeal } from "@/service/action";
 import styles from "./items.module.css";
 import { notFound } from "next/navigation";
 
-export const generateMetadata = async ({ params }) => {
-  const meal = getMeal(params.slug);
-  if (!meal) {
-    notFound();
-  }
-  return {
-    title: meal.title,
-    description: meal.summary,
-  };
-};
+// export const generateMetadata = async ({ params }) => {
+//   const meal = getMeal(params.slug);
+//   if (!meal) {
+//     notFound();
+//   }
+//   return {
+//     title: meal.title,
+//     description: meal.summary,
+//   };
+// };
 const MealItemPage = async ({ params }) => {
   const meal = await getMeal(params.slug);
 
@@ -25,7 +25,7 @@ const MealItemPage = async ({ params }) => {
     <>
       <header className={styles.header}>
         <div className={styles.image}>
-          <Image src={meal[0].image} fill />
+          <Image src={meal[0].image} fill alt="img" />
         </div>
         <div className={styles.headerText}>
           <h1>{meal[0].title} </h1>
